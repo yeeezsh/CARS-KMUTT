@@ -1,0 +1,27 @@
+version: "3.4"
+services:
+  mongo:
+    image: mongo:bionic
+    container_name: mongo
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+  backend:
+    container_name: backend
+    restart: always
+    depends_on: 
+        - mongo
+    environment:
+      WAIT_HOSTS: mongo:27017
+      NODE_ENV: "development"
+    build: ./backend
+    ports:
+      - "3000:3000"
+    logging:
+      options:
+        max-size: 50m
