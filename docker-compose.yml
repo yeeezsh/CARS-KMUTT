@@ -16,6 +16,21 @@ services:
     logging:
       options:
         max-size: 50m
+  frontend:
+    container_name: frontend
+    restart: always
+    depends_on: 
+        - backend
+    environment:
+      NODE_ENV: "development"
+    build: ./frontend-tsx
+    ports:
+      - "5000:5000"
+    volumes:
+      - './frontend-tsx/src:/src/src'
+    logging:
+      options:
+        max-size: 50m
   mongodb-sharded:
     image: 'bitnami/mongodb-sharded:4.2'
     environment:
