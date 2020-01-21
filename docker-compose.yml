@@ -50,7 +50,7 @@ services:
       - MONGODB_REPLICA_SET_NAME=cfgreplicaset
     volumes:
       - './mongo/cfg_data:/bitnami'
-      
+
 volumes:
   shard0_data:
     driver: local
