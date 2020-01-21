@@ -19,8 +19,6 @@ services:
   frontend:
     container_name: frontend
     restart: always
-    depends_on: 
-        - backend
     environment:
       NODE_ENV: "development"
     build: ./frontend-tsx
