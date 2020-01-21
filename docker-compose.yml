@@ -1,27 +1,58 @@
 version: "3.4"
 services:
-  mongo:
-    image: mongo:bionic
-    container_name: mongo
-    restart: on-failure
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./data/db:/data/db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
   backend:
     container_name: backend
     restart: always
     depends_on: 
-        - mongo
+        - mongodb-shard0
     environment:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "development"
     build: ./backend
     ports:
       - "3000:3000"
+    volumes:
+      - './backend/src:/src/src'
     logging:
       options:
         max-size: 50m
+  mongodb-sharded:
+    image: 'bitnami/mongodb-sharded:4.2'
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb-sharded
+      - MONGODB_SHARDING_MODE=mongos
+      - MONGODB_CFG_PRIMARY_HOST=mongodb-cfg
+      - MONGODB_CFG_REPLICA_SET_NAME=cfgreplicaset
+      - MONGODB_REPLICA_SET_KEY=kmuttCARs
+      - MONGODB_ROOT_PASSWORD=kmuttC@Rs2020
+    ports:
+      - "27017:27017"
+  mongodb-shard0:
+    image: 'bitnami/mongodb-sharded:4.2'
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb-shard0
+      - MONGODB_SHARDING_MODE=shardsvr
+      - MONGODB_MONGOS_HOST=mongodb-sharded
+      - MONGODB_ROOT_PASSWORD=kmuttC@Rs2020
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_REPLICA_SET_KEY=kmuttCARs
+      - MONGODB_REPLICA_SET_NAME=shard0
+    volumes:
+      - './mongo/shard0_data:/bitnami'
+  mongodb-cfg:
+    image: 'bitnami/mongodb-sharded:4.2'
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb-cfg
+      - MONGODB_SHARDING_MODE=configsvr
+      - MONGODB_ROOT_PASSWORD=kmuttC@Rs2020
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_REPLICA_SET_KEY=kmuttCARs
+      - MONGODB_REPLICA_SET_NAME=cfgreplicaset
+    volumes:
+      - './mongo/cfg_data:/bitnami'
+      
+volumes:
+  shard0_data:
+    driver: local
+  cfg_data:
+    driver: local
