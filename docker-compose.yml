@@ -3,16 +3,17 @@ services:
   backend:
     container_name: backend
     restart: always
-    depends_on: 
-        - mongodb-shard0
+    depends_on:
+      - mongodb-shard0
     environment:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "development"
     build: ./backend
     ports:
       - "3000:3000"
+      - "9229:9229"
     volumes:
-      - './backend/src:/src/src'
+      - "./backend/src:/src/src"
     logging:
       options:
         max-size: 50m
@@ -25,12 +26,12 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - './frontend-tsx/src:/src/src'
+      - "./frontend-tsx/src:/src/src"
     logging:
       options:
         max-size: 50m
   mongodb-sharded:
-    image: 'bitnami/mongodb-sharded:4.2'
+    image: "bitnami/mongodb-sharded:4.2"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-sharded
       - MONGODB_SHARDING_MODE=mongos
@@ -41,7 +42,7 @@ services:
     ports:
       - "27017:27017"
   mongodb-shard0:
-    image: 'bitnami/mongodb-sharded:4.2'
+    image: "bitnami/mongodb-sharded:4.2"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-shard0
       - MONGODB_SHARDING_MODE=shardsvr
@@ -51,9 +52,9 @@ services:
       - MONGODB_REPLICA_SET_KEY=kmuttCARs
       - MONGODB_REPLICA_SET_NAME=shard0
     volumes:
-      - './mongo/shard0_data:/bitnami'
+      - "./mongo/shard0_data:/bitnami"
   mongodb-cfg:
-    image: 'bitnami/mongodb-sharded:4.2'
+    image: "bitnami/mongodb-sharded:4.2"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-cfg
       - MONGODB_SHARDING_MODE=configsvr
@@ -62,7 +63,7 @@ services:
       - MONGODB_REPLICA_SET_KEY=kmuttCARs
       - MONGODB_REPLICA_SET_NAME=cfgreplicaset
     volumes:
-      - './mongo/cfg_data:/bitnami'
+      - "./mongo/cfg_data:/bitnami"
 
 volumes:
   shard0_data:
