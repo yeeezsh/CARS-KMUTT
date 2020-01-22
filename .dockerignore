@@ -1,0 +1,30 @@
+.git
+.github
+.vscode
+coverage
+docker-compose.yml
+README.md
+
+node_modules
+npm-debug.log
+npm-debug.log.*
+
+# backend
+/backend/.git
+/backend/.github
+/backend/.vscode
+/backend/coverage
+/backend/docker-compose.yml
+/backend/README.md
+/backend/node_modules
+/backend/dist
+
+# frontend
+/frontend-tsx/.git
+/frontend-tsx/.github
+/frontend-tsx/.vscode
+/frontend-tsx/coverage
+/frontend-tsx/docker-compose.yml
+/frontend-tsx/README.md
+/frontend-tsx/node_modules
+/frontend-tsx/dist
