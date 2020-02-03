@@ -28,3 +28,6 @@ npm-debug.log.*
 /frontend-tsx/README.md
 /frontend-tsx/node_modules
 /frontend-tsx/dist
+
+# persistance
+./mongo
