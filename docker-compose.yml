@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   backend:
-    container_name: backend
+    container_name: CARS-backend
     restart: always
     depends_on:
       - mongodb-shard0
@@ -19,7 +19,7 @@ services:
       options:
         max-size: 50m
   frontend:
-    container_name: frontend
+    container_name: CARS-frontend
     restart: always
     environment:
       NODE_ENV: "development"
