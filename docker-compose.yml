@@ -8,8 +8,11 @@ services:
     environment:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "development"
-      TZ : Asia/Bangkok
-    build: ./backend
+      TZ: Asia/Bangkok
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: dev
     ports:
       - "3000:3000"
       - "9229:9229"
@@ -23,7 +26,7 @@ services:
     restart: always
     environment:
       NODE_ENV: "development"
-      TZ : Asia/Bangkok
+      TZ: Asia/Bangkok
     build:
       context: ./frontend-tsx
       dockerfile: Dockerfile
