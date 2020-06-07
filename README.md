@@ -11,6 +11,7 @@ Install Docker and Docker-compose follow this link
 - MongoDB cli 4.x
 - Mongo Restore (For Remote/Server)
 - Ubuntu 18 (For server)
+- mongo-tools
 
 ### Project Setup
 
@@ -40,6 +41,13 @@ docker-compose -f docker-compose.uat.yml up -d --build
 ```
 
 ##### Server/Remote Setup
+
+install mongorestore tools
+
+```
+apt install mongo-tools
+```
+
 then dump a area, staff data to database via mongorestore
 
 if you're restoring from remote check a connectivity of server that allow **ports:27017** and change the **HOSTNAME** to the server ip
