@@ -62,7 +62,7 @@ services:
       - MONGODB_REPLICA_SET_NAME=shard0
       - TZ=Asia/Bangkok
     volumes:
-      - "./mongo/shard0_data:/bitnami"
+      - "shard0_data:/bitnami"
   mongodb-cfg:
     image: "bitnami/mongodb-sharded:4.2"
     environment:
@@ -74,7 +74,7 @@ services:
       - MONGODB_REPLICA_SET_NAME=cfgreplicaset
       - TZ=Asia/Bangkok
     volumes:
-      - "./mongo/cfg_data:/bitnami"
+      - "cfg_data:/bitnami"
 
 volumes:
   shard0_data:
