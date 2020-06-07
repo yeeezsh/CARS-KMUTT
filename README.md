@@ -17,25 +17,25 @@ Install Docker and Docker-compose follow this link
 ##### Server Setup
 clone project
 
-```
+```sh
 git clone https://github.com/yee2542/CARS-KMUTT
 cd ./CARS-KMUTT
 ```
 
 initialize submodule
-```
+```sh
 git submodule update --init --recursive
 ```
 
 then use docker-compose to run a project in production environment use **docker-compose.uat.yml** by passing via -f args and -d for running in backgroud
 
-```
+```sh
 docker-compose -f docker-compose.uat.yml up -d
 ```
 
 for fresh build or any resolve soft-cache problem try add --build to run it
 
-```
+```sh
 docker-compose -f docker-compose.uat.yml up -d --build
 ```
 
@@ -45,8 +45,8 @@ then dump a area, staff data to database via mongorestore
 if you're restoring from remote check a connectivity of server that allow **ports:27017** and change the **HOSTNAME** to the server ip
 
 
-```
-mongorestore --host="HOSTNAME:27017" --username root --password kmuttC@Rs2020 --authenticationDatabase admin
+```sh
+mongorestore --host="{HOSTNAME}:27017" --username root --password kmuttC@Rs2020 --authenticationDatabase admin
 ```
 
 
