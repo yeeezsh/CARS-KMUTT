@@ -1,1 +1,0 @@
-sudo chown -R 1001 mongo
