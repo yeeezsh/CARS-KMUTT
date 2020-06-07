@@ -44,8 +44,12 @@ then dump a area, staff data to database via mongorestore
 
 if you're restoring from remote check a connectivity of server that allow **ports:27017** and change the **HOSTNAME** to the server ip
 
+point 
+
 
 ```sh
+cd ./init
+
 mongorestore --host="{HOSTNAME}:27017" --username root --password kmuttC@Rs2020 --authenticationDatabase admin
 ```
 
