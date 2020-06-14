@@ -27,7 +27,8 @@ services:
     environment:
       NODE_ENV: "development"
       TZ: Asia/Bangkok
-      BACKEND_ENDPOINT: "http://10.2.14.109:3000/api"
+      REACT_APP_BACKEND_ENDPOINT: "http://10.2.14.109:3000/api"
+      REACT_APP_TIMEZONE: America/Pacific
     build:
       context: ./frontend-tsx
       dockerfile: Dockerfile
@@ -42,38 +43,38 @@ services:
   mongodb-sharded:
     image: "bitnami/mongodb-sharded:4.2"
     environment:
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-sharded
-      - MONGODB_SHARDING_MODE=mongos
-      - MONGODB_CFG_PRIMARY_HOST=mongodb-cfg
-      - MONGODB_CFG_REPLICA_SET_NAME=cfgreplicaset
-      - MONGODB_REPLICA_SET_KEY=kmuttCARs
-      - MONGODB_ROOT_PASSWORD=kmuttC@Rs2020
-      - TZ=Asia/Bangkok
+      MONGODB_ADVERTISED_HOSTNAME: mongodb-sharded
+      MONGODB_SHARDING_MODE: mongos
+      MONGODB_CFG_PRIMARY_HOST: mongodb-cfg
+      MONGODB_CFG_REPLICA_SET_NAME: cfgreplicaset
+      MONGODB_REPLICA_SET_KEY: kmuttCARs
+      MONGODB_ROOT_PASSWORD: kmuttC@Rs2020
+      TZ: Asia/Bangkok
     ports:
       - "27017:27017"
   mongodb-shard0:
     image: "bitnami/mongodb-sharded:4.2"
     environment:
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-shard0
-      - MONGODB_SHARDING_MODE=shardsvr
-      - MONGODB_MONGOS_HOST=mongodb-sharded
-      - MONGODB_ROOT_PASSWORD=kmuttC@Rs2020
-      - MONGODB_REPLICA_SET_MODE=primary
-      - MONGODB_REPLICA_SET_KEY=kmuttCARs
-      - MONGODB_REPLICA_SET_NAME=shard0
-      - TZ=Asia/Bangkok
+      MONGODB_ADVERTISED_HOSTNAME: mongodb-shard0
+      MONGODB_SHARDING_MODE: shardsvr
+      MONGODB_MONGOS_HOST: mongodb-sharded
+      MONGODB_ROOT_PASSWORD: kmuttC@Rs2020
+      MONGODB_REPLICA_SET_MODE: primary
+      MONGODB_REPLICA_SET_KEY: kmuttCARs
+      MONGODB_REPLICA_SET_NAME: shard0
+      TZ: Asia/Bangkok
     volumes:
       - "shard0_data:/bitnami"
   mongodb-cfg:
     image: "bitnami/mongodb-sharded:4.2"
     environment:
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-cfg
-      - MONGODB_SHARDING_MODE=configsvr
-      - MONGODB_ROOT_PASSWORD=kmuttC@Rs2020
-      - MONGODB_REPLICA_SET_MODE=primary
-      - MONGODB_REPLICA_SET_KEY=kmuttCARs
-      - MONGODB_REPLICA_SET_NAME=cfgreplicaset
-      - TZ=Asia/Bangkok
+      MONGODB_ADVERTISED_HOSTNAME: mongodb-cfg
+      MONGODB_SHARDING_MODE: configsvr
+      MONGODB_ROOT_PASSWORD: kmuttC@Rs2020
+      MONGODB_REPLICA_SET_MODE: primary
+      MONGODB_REPLICA_SET_KEY: kmuttCARs
+      MONGODB_REPLICA_SET_NAME: cfgreplicaset
+      TZ: Asia/Bangkok
     volumes:
       - "cfg_data:/bitnami"
 
