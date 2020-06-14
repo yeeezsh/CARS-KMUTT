@@ -27,6 +27,7 @@ services:
     environment:
       NODE_ENV: "development"
       TZ: Asia/Bangkok
+      BACKEND_ENDPOINT: "http://10.2.14.109:3000/api"
     build:
       context: ./frontend-tsx
       dockerfile: Dockerfile
