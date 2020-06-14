@@ -27,12 +27,13 @@ services:
     environment:
       NODE_ENV: "development"
       TZ: Asia/Bangkok
-      REACT_APP_BACKEND_ENDPOINT: "http://10.2.14.109:3000/api"
-      REACT_APP_TIMEZONE: America/Pacific
     build:
       context: ./frontend-tsx
       dockerfile: Dockerfile
       target: uat
+      args:
+        REACT_APP_BACKEND_ENDPOINT: "http://10.2.14.109:3000/api"
+        REACT_APP_TIMEZONE: Asia/Bangkok
     ports:
       - "80:5000"
     volumes:

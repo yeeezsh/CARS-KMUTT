@@ -26,7 +26,7 @@ services:
     restart: always
     environment:
       NODE_ENV: "development"
-      TZ: Asia/Bangkok
+      REACT_APP_TIMEZONE: Asia/Bangkok
       REACT_APP_BACKEND_ENDPOINT: "http://localhost:3000/api"
     build:
       context: ./frontend-tsx
