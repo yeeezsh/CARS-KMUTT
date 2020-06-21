@@ -7,7 +7,7 @@ services:
       - mongodb-shard0
     environment:
       WAIT_HOSTS: mongo:27017
-      NODE_ENV: "development"
+      NODE_ENV: "production"
       TZ: Asia/Bangkok
     build:
       context: ./backend
