@@ -13,14 +13,17 @@ services:
       context: ./backend
       dockerfile: Dockerfile
       target: uat
-    ports:
-      - "3000:3000"
-      - "9229:9229"
-    volumes:
-      - "./backend/src:/src/src"
     logging:
       options:
         max-size: 50m
+  backend-proxy:
+    container_name: CARS-backend-proxy
+    restart: on-failure
+    build:
+        context: ./proxy
+        dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
   frontend:
     container_name: CARS-frontend
     restart: always
