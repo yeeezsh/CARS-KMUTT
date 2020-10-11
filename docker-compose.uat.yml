@@ -45,7 +45,7 @@ services:
     container_name: CARS-frontend
     restart: always
     environment:
-      NODE_ENV: "development"
+      NODE_ENV: "production"
       TZ: Asia/Bangkok
     build:
       context: ./frontend-tsx
