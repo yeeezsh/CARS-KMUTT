@@ -36,7 +36,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - "./frontend-tsx/src:/src/src"
+      - "./frontend-tsx/src:/src"
     logging:
       options:
         max-size: 50m
