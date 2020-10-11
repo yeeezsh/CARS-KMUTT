@@ -17,7 +17,7 @@ services:
       - "3000:3000"
       - "9229:9229"
     volumes:
-      - "./backend/src:/src/src"
+      - "./backend/src:/src"
     logging:
       options:
         max-size: 50m
