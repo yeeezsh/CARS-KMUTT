@@ -57,7 +57,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - "./frontend-tsx/src:/src/src"
+      - "./frontend-tsx/src:/src"
     logging:
       driver: none
   mongodb-sharded:
