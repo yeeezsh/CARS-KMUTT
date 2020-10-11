@@ -56,8 +56,6 @@ services:
         REACT_APP_TIMEZONE: Asia/Bangkok
     ports:
       - "80:80"
-    volumes:
-      - "./frontend-tsx/src:/src/src"
     logging:
       driver: none
   mongodb-sharded:
