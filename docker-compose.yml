@@ -9,6 +9,7 @@ services:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "development"
       TZ: Asia/Bangkok
+      ORIGIN: http(|s):\/\/localhost:5000
       DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
       DATABASE_USERAME: root
       DATABASE_PASSWORD: kmuttC@Rs2020
