@@ -9,7 +9,14 @@ services:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "production"
       TZ: Asia/Bangkok
-      CORS: http://10.2.14.109
+      ORIGIN: http(|s):\/\/10.2.14.109
+      DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
+      DATABASE_USERAME: root
+      DATABASE_PASSWORD: kmuttC@Rs2020
+      DATABASE_AUTH_SOURCE: admin
+      JWT_SECRET_KEY: secretKeyJwtEiei
+      JWT_EXPIRES: 3600s
+      OPS_KEY: 'kmuttC@Rs2020.OpsKey'
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -26,6 +33,14 @@ services:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "production"
       TZ: Asia/Bangkok
+      ORIGIN: http(|s):\/\/10.2.14.109
+      DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
+      DATABASE_USERAME: root
+      DATABASE_PASSWORD: kmuttC@Rs2020
+      DATABASE_AUTH_SOURCE: admin
+      JWT_SECRET_KEY: secretKeyJwtEiei
+      JWT_EXPIRES: 3600s
+      OPS_KEY: 'kmuttC@Rs2020.OpsKey'
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -56,8 +71,6 @@ services:
         REACT_APP_TIMEZONE: Asia/Bangkok
     ports:
       - "80:80"
-    volumes:
-      - "./frontend-tsx/src:/src"
     logging:
       driver: none
   mongodb-sharded:
