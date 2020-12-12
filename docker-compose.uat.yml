@@ -75,6 +75,7 @@ services:
       driver: none
   mongodb-sharded:
     image: "bitnami/mongodb-sharded:4.2"
+    restart: on-failure
     environment:
       MONGODB_ADVERTISED_HOSTNAME: mongodb-sharded
       MONGODB_SHARDING_MODE: mongos
@@ -87,6 +88,7 @@ services:
       - "27017:27017"
   mongodb-shard0:
     image: "bitnami/mongodb-sharded:4.2"
+    restart: on-failure
     environment:
       MONGODB_ADVERTISED_HOSTNAME: mongodb-shard0
       MONGODB_SHARDING_MODE: shardsvr
@@ -100,6 +102,7 @@ services:
       - "shard0_data:/bitnami"
   mongodb-cfg:
     image: "bitnami/mongodb-sharded:4.2"
+    restart: on-failure
     environment:
       MONGODB_ADVERTISED_HOSTNAME: mongodb-cfg
       MONGODB_SHARDING_MODE: configsvr
