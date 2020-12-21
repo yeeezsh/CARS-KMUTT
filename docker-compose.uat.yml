@@ -60,7 +60,7 @@ services:
     container_name: CARS-frontend
     restart: always
     environment:
-      REACT_APP_GA_KEY: "G-BV6KYJ1VDW"
+      REACT_APP_GA_KEY: "G-VSK5G6Y1LF"
       NODE_ENV: "production"
       TZ: Asia/Bangkok
     build:
