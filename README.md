@@ -61,7 +61,16 @@ cd ./init
 mongorestore --host="{HOSTNAME}:27017" --username root --password kmuttC@Rs2020 --authenticationDatabase admin
 ```
 
+##### Issues
+when db not start cause have no permission to create dir e.g.
 
+`mkdir: cannot create directory`
+
+fix by this command
+
+```sh
+sudo chown -R 1001 ./db
+```
 
 
 
