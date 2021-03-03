@@ -84,6 +84,8 @@ services:
       TZ: Asia/Bangkok
     ports:
       - "27017:27017"
+    volumes:
+    - './db/shard-0:/bitnami'
   mongodb-shard0:
     image: "bitnami/mongodb-sharded:4.2"
     restart: on-failure
@@ -110,10 +112,4 @@ services:
       MONGODB_REPLICA_SET_NAME: cfgreplicaset
       TZ: Asia/Bangkok
     volumes:
-      - "cfg_data:/bitnami"
-
-volumes:
-  shard0_data:
-    driver: local
-  cfg_data:
-    driver: local
+      - './db/cfg:/bitnami'
