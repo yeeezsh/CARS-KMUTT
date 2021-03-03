@@ -48,14 +48,14 @@ services:
     logging:
       options:
         max-size: 50m
-  backend-proxy:
-    container_name: CARS-backend-proxy
+  cars-proxy:
+    container_name: CARS-proxy
     restart: on-failure
     build:
         context: ./proxy
         dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "80:80"
   frontend:
     container_name: CARS-frontend
     restart: always
@@ -69,8 +69,6 @@ services:
         REACT_APP_GA_KEY: "G-VSK5G6Y1LF"
         REACT_APP_BACKEND_ENDPOINT: "https://bookmyspace.kmutt.ac.th/api"
         REACT_APP_TIMEZONE: Asia/Bangkok
-    ports:
-      - "80:80"
     logging:
       driver: none
   mongodb-sharded:
