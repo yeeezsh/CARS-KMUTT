@@ -9,7 +9,7 @@ services:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "production"
       TZ: Asia/Bangkok
-      ORIGIN: http(|s):\/\/10.2.14.109
+      ORIGIN: http(|s):\/\/bookmyspace.kmutt.ac.th
       DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
       DATABASE_USERAME: root
       DATABASE_PASSWORD: kmuttC@Rs2020
@@ -33,7 +33,7 @@ services:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "production"
       TZ: Asia/Bangkok
-      ORIGIN: http(|s):\/\/10.2.14.109
+      ORIGIN: http(|s):\/\/bookmyspace.kmutt.ac.th
       DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
       DATABASE_USERAME: root
       DATABASE_PASSWORD: kmuttC@Rs2020
@@ -60,16 +60,14 @@ services:
     container_name: CARS-frontend
     restart: always
     environment:
-      REACT_APP_GA_KEY: "G-VSK5G6Y1LF"
       NODE_ENV: "production"
-      TZ: Asia/Bangkok
     build:
       context: ./frontend-tsx
       dockerfile: Dockerfile
       target: nginx
       args:
         REACT_APP_GA_KEY: "G-VSK5G6Y1LF"
-        REACT_APP_BACKEND_ENDPOINT: "http://10.2.14.109:3000/api"
+        REACT_APP_BACKEND_ENDPOINT: "https://bookmyspace.kmutt.ac.th/api"
         REACT_APP_TIMEZONE: Asia/Bangkok
     ports:
       - "80:80"
