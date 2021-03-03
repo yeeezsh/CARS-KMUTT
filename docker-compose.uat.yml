@@ -16,7 +16,7 @@ services:
       DATABASE_AUTH_SOURCE: admin
       JWT_SECRET_KEY: secretKeyJwtEiei
       JWT_EXPIRES: 3600s
-      OPS_KEY: 'kmuttC@Rs2020.OpsKey'
+      OPS_KEY: "kmuttC@Rs2020.OpsKey"
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -34,13 +34,13 @@ services:
       NODE_ENV: "production"
       TZ: Asia/Bangkok
       ORIGIN: http(|s):\/\/bookmyspace.kmutt.ac.th
-      DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
+      DATABASE_CONNECTION: "mongodb://mongos:27017/cars-kmutt"
       DATABASE_USERAME: root
       DATABASE_PASSWORD: kmuttC@Rs2020
       DATABASE_AUTH_SOURCE: admin
       JWT_SECRET_KEY: secretKeyJwtEiei
       JWT_EXPIRES: 3600s
-      OPS_KEY: 'kmuttC@Rs2020.OpsKey'
+      OPS_KEY: "kmuttC@Rs2020.OpsKey"
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -52,8 +52,8 @@ services:
     container_name: CARS-proxy
     restart: on-failure
     build:
-        context: ./proxy
-        dockerfile: Dockerfile
+      context: ./proxy
+      dockerfile: Dockerfile
     ports:
       - "80:80"
   frontend:
@@ -71,7 +71,7 @@ services:
         REACT_APP_TIMEZONE: Asia/Bangkok
     logging:
       driver: none
-  mongodb-sharded:
+  mongos:
     image: "bitnami/mongodb-sharded:4.2"
     restart: on-failure
     environment:
@@ -84,8 +84,6 @@ services:
       TZ: Asia/Bangkok
     ports:
       - "27017:27017"
-    volumes:
-    - './db/shard-0:/bitnami'
   mongodb-shard0:
     image: "bitnami/mongodb-sharded:4.2"
     restart: on-failure
@@ -99,7 +97,7 @@ services:
       MONGODB_REPLICA_SET_NAME: shard0
       TZ: Asia/Bangkok
     volumes:
-      - "shard0_data:/bitnami"
+      - "./db/shard-0:/bitnami"
   mongodb-cfg:
     image: "bitnami/mongodb-sharded:4.2"
     restart: on-failure
@@ -112,4 +110,4 @@ services:
       MONGODB_REPLICA_SET_NAME: cfgreplicaset
       TZ: Asia/Bangkok
     volumes:
-      - './db/cfg:/bitnami'
+      - "./db/cfg:/bitnami"
