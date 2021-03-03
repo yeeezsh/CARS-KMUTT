@@ -10,7 +10,7 @@ services:
       NODE_ENV: "production"
       TZ: Asia/Bangkok
       ORIGIN: http(|s):\/\/bookmyspace.kmutt.ac.th
-      DATABASE_CONNECTION: "mongodb://mongodb-sharded:27017/cars-kmutt"
+      DATABASE_CONNECTION: "mongodb://mongos:27017/cars-kmutt"
       DATABASE_USERAME: root
       DATABASE_PASSWORD: kmuttC@Rs2020
       DATABASE_AUTH_SOURCE: admin
@@ -75,7 +75,7 @@ services:
     image: "bitnami/mongodb-sharded:4.2"
     restart: on-failure
     environment:
-      MONGODB_ADVERTISED_HOSTNAME: mongodb-sharded
+      MONGODB_ADVERTISED_HOSTNAME: mongodb-mogos
       MONGODB_SHARDING_MODE: mongos
       MONGODB_CFG_PRIMARY_HOST: mongodb-cfg
       MONGODB_CFG_REPLICA_SET_NAME: cfgreplicaset
