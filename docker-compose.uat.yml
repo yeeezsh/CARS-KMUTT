@@ -4,7 +4,7 @@ services:
     container_name: CARS-backend
     restart: always
     depends_on:
-      - mongodb-shard0
+      - cars-bff-mongos
     environment:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "production"
@@ -28,7 +28,7 @@ services:
     container_name: CARS-backend-backup
     restart: always
     depends_on:
-      - mongodb-shard0
+      - cars-bff-mongos
     environment:
       WAIT_HOSTS: mongo:27017
       NODE_ENV: "production"
