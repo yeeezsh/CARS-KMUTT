@@ -66,7 +66,7 @@ services:
       dockerfile: Dockerfile
       target: nginx
       args:
-        REACT_APP_GA_KEY: "G-D8BMGZZYK2"
+        REACT_APP_GA_KEY: "G-Z2VTBPXW76"
         REACT_APP_BACKEND_ENDPOINT: "https://bookmyspace.kmutt.ac.th/api"
         REACT_APP_TIMEZONE: Asia/Bangkok
     logging:
