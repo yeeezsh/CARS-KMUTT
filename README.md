@@ -1,13 +1,18 @@
 # KMUTT-CARS
+
 ## Getting Started
+
 Preparing the server environment
 
 ### Server Setup
-Install Docker and Docker-compose follow this link 
+
+Install Docker and Docker-compose follow this link
+
 - [Docker Setup](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 - [Docker-Compose Setup](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
 
 ### Prerequisites
+
 - MongoDB cli 4.x
 - Mongo Restore (For Remote/Server)
 - Ubuntu 18 (For server)
@@ -16,6 +21,7 @@ Install Docker and Docker-compose follow this link
 ### Project Setup
 
 ##### Server Setup
+
 clone project
 
 ```sh
@@ -24,6 +30,7 @@ cd ./CARS-KMUTT
 ```
 
 initialize submodule
+
 ```sh
 git submodule update --init --recursive
 ```
@@ -52,16 +59,21 @@ then dump a area, staff data to database via mongorestore
 
 if you're restoring from remote check a connectivity of server that allow **ports:27017** and change the **HOSTNAME** to the server ip
 
-point 
-
+point
 
 ```sh
-cd ./init
+cd ./init/default
+# or
+cd ./init/covid
 
-mongorestore --host="{HOSTNAME}:27017" --username root --password kmuttC@Rs2020 --authenticationDatabase admin
+# pattern
+mongorestore --host="{HOSTNAME}:27017" --username="{USERNAME}" --password="{PASSWORD}" --authenticationDatabase="{ROLE}"
+
+mongorestore --host="localhost:27017" --username root --password kmuttC@Rs2020 --authenticationDatabase admin
 ```
 
 ##### Issues
+
 when db not start cause have no permission to create dir e.g.
 
 `mkdir: cannot create directory`
@@ -71,6 +83,3 @@ fix by this command
 ```sh
 sudo chown -R 1001 ./db
 ```
-
-
-
