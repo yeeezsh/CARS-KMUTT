@@ -89,7 +89,7 @@ all reservation area will use this schema
 | forward            | Number (3)                                 | Can reserve in advance for ... day                  |
 | name               | String (football1)                         | unique name for area reference (effect to frontend) |
 
-```JSON
+```JS
 {
     "_id" : ObjectId("5e282abe9854030029ae0f5f"),
     "required" : {
