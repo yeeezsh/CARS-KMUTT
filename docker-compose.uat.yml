@@ -17,6 +17,7 @@ services:
       JWT_SECRET_KEY: secretKeyJwtEiei
       JWT_EXPIRES: 3600s
       OPS_KEY: "kmuttC@Rs2020.OpsKey"
+      KMUTT_AUTH: "https://auth.innosoftkmutt.com"
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -41,6 +42,7 @@ services:
       JWT_SECRET_KEY: secretKeyJwtEiei
       JWT_EXPIRES: 3600s
       OPS_KEY: "kmuttC@Rs2020.OpsKey"
+      KMUTT_AUTH: "https://auth.innosoftkmutt.com"
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -66,6 +68,7 @@ services:
       dockerfile: Dockerfile
       target: nginx
       args:
+        G_SEARCH_CONTENT: "t_J3utS7MZlwbsgO15fMxSO0cVFgda7dOJHZQEfLaxM"
         REACT_APP_GA_KEY: "G-Z2VTBPXW76"
         REACT_APP_BACKEND_ENDPOINT: "https://bookmyspace.kmutt.ac.th/api"
         REACT_APP_TIMEZONE: Asia/Bangkok

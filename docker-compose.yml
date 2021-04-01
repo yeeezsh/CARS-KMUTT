@@ -16,7 +16,8 @@ services:
       DATABASE_AUTH_SOURCE: admin
       JWT_SECRET_KEY: secretKeyJwtEiei
       JWT_EXPIRES: 3600s
-      OPS_KEY: 'kmuttC@Rs2020.OpsKey'
+      OPS_KEY: "kmuttC@Rs2020.OpsKey"
+      KMUTT_AUTH: "https://auth.innosoftkmutt.com"
     build:
       context: ./backend
       dockerfile: Dockerfile
