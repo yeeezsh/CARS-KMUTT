@@ -41,6 +41,7 @@ then use docker-compose to run a project in production environment use **docker-
 # DEPRECATED
 # docker-compose -f docker-compose.prod.yml up -d
 
+docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 for fresh build or any resolve soft-cache problem try add --build to run it
