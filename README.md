@@ -38,13 +38,19 @@ git submodule update --init --recursive
 then use docker-compose to run a project in production environment use **docker-compose.uat.yml** by passing via -f args and -d for running in backgroud
 
 ```sh
-docker-compose -f docker-compose.uat.yml up -d
+# DEPRECATED
+# docker-compose -f docker-compose.prod.yml up -d
+
+docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 for fresh build or any resolve soft-cache problem try add --build to run it
 
 ```sh
-docker-compose -f docker-compose.uat.yml up -d --build
+# DEPRECATED
+# docker-compose -f docker-compose.uat.yml up -d --build
+
+docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 ##### Server/Remote Setup
@@ -117,6 +123,7 @@ all reservation area will use this schema
 
 ##### Issues
 
+###### Shard db cannot start
 when db not start cause have no permission to create dir e.g.
 
 `mkdir: cannot create directory`
@@ -126,3 +133,12 @@ fix by this command
 ```sh
 sudo chown -R 1001 ./db
 ```
+
+###### Cannot restore dump data
+might found when try to restore db data by using mongodb-cli (mongorestore) for ubuntu version
+```
+Failed: error connecting to db server: server returned error on SASL authentication step: BSON field 'saslContinue.mechanism' is an unknown field.
+```
+please using other platform for restoring e.g. macOS and point host to remote server
+--host="~~localhost~~:27017" -> --host="10.2.14.109:27017"
+and restore from your local machine instead
