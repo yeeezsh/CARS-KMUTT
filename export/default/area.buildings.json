@@ -1,0 +1,11 @@
+{"_id":{"$oid":"5e27d4e610296a0176a3ebf9"},"name":"football","label":"Football,ฟุตบอล","type":"sport","createAt":{"$date":"2020-01-22T04:51:50.721Z"},"updateAt":{"$date":"2020-01-22T04:51:50.722Z"},"__v":0}
+{"_id":{"$oid":"5e27d4f310296a0176a3ebfa"},"name":"badminton","label":"Badminton,แบดมินตัน","type":"sport","createAt":{"$date":"2020-01-22T04:52:03.831Z"},"updateAt":{"$date":"2020-01-22T04:52:03.831Z"},"__v":0}
+{"_id":{"$oid":"5e7a0831d4eafafc953787a5"},"name":"kfc","label":"อาคารพระจอมเกล้าราชานุสรณ์ 190 ปี มจธ.(โรงยิม)","type":"common-sport"}
+{"_id":{"$oid":"5ea83f739cb40840983a3d66"},"name":"activity-1","label":"ห้องกิจกรรม","type":"meeting-club"}
+{"_id":{"$oid":"5ea845d89cb40840983a4043"},"name":"meeting-1","label":"ห้องประชุม","type":"meeting"}
+{"_id":{"$oid":"5ec93c7002ac7f5baf37fec6"},"name":"park","label":"สวนสุขภาพ","type":"common"}
+{"_id":{"$oid":"5ec941a702ac7f5baf380170"},"name":"lg","label":"Learning Garden","type":"common"}
+{"_id":{"$oid":"5ec9420102ac7f5baf38019c"},"name":"sci-basketball","label":"สนามบาสคณะวิทยาศาสตร์","type":"common"}
+{"_id":{"$oid":"5ee5d6a62c9d8c0132a1e6ff"},"name":"basketball","label":"Basketball,บาสเก็ตบอล","type":"sport","createAt":{"$date":"2020-06-14T07:49:58.24Z"},"updateAt":{"$date":"2020-06-14T07:49:58.241Z"},"__v":0}
+{"_id":{"$oid":"5ee63eb6e1c82e00299d7ed6"},"name":"volleyball","label":"Volleyball,วอลเลย์บอล","type":"sport","createAt":{"$date":"2020-06-14T15:13:58.34Z"},"updateAt":{"$date":"2020-06-14T15:13:58.34Z"},"__v":0}
+{"_id":{"$oid":"5ee63fd3e1c82e00299d7ed7"},"name":"tennis","label":"Tennis,เทนนิส","type":"sport","createAt":{"$date":"2020-06-14T15:18:43.846Z"},"updateAt":{"$date":"2020-06-14T15:18:43.846Z"},"__v":0}
